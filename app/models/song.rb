@@ -9,13 +9,13 @@ class Song < ActiveRecord::Base
 
   def no_future_year
     if release_year
-      errors.add(:release_year, "Can't be in the future!") if release_year > Time.now.year.to_i
+      errors.add(:release_year, "can't be in the future!") if release_year > Time.now.year.to_i
     end
   end
 
   def no_year_when_unreleased
     if released
-      errors.add(:release_year, "No release Year entered!") if !release_year
+      errors.add(:release_year, "must exist!") if !release_year
     end
   end
 
